@@ -13,10 +13,26 @@ router.post('/signup', function(req,res,next){
   var user = new User(body)
 
   user.save().then((user) => {
-    res.send(user)
+    return user.generateAuthToken()
+  }).then((token) =>{
+      res.header('x-auth',token).send(user)
+    }).catch((e) => {
+      res.status(400).send(e)
+    })
     console.log(req.body);
-  })
+
 })
+
+router.post('/login', function(req,res,next){
+  var body = _.pick(req.body, ['username','password'])
+  User.findByCredentials(body.username, body.password).then((user) => {
+    return user.generateAuthToken().then((token) => {
+      res.header('x-auth', token).send(user);
+    });
+  }).catch((e) => {
+    res.status(400).send();
+  });
+});
 
 
 module.exports = router
