@@ -12,7 +12,8 @@ var port = process.env.PORT || 3000;
 var index  = require("./Routes/home.js")
 
 
-app.use(bodyParser.json())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 app.use(favicon());// for ceaching
 app.use(logger('dev'));//for request logs
 app.use(express.static(publicPath))

@@ -9,11 +9,12 @@ router.get('/',function(req,res,next){
 })
 
 router.post('/signup', function(req,res,next){
-  var body = _.pick(req.body,['name','email','username','password'])
+  var body = _.pick(req.body,['name','username','password','email'])
   var user = new User(body)
 
   user.save().then((user) => {
     res.send(user)
+    console.log(req.body);
   })
 })
 

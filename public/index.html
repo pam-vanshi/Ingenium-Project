@@ -17,11 +17,11 @@
         <section>
             <div class="login-page">
               <div class="form">
-                <form class="register-form">
-                  <input type="text" placeholder="name" required/>
-                  <input type="text" placeholder="username" required/>
-                  <input type="password" placeholder="password" required/>
-                  <input type="email" placeholder="email address" required/>
+                <form class="register-form" action="http://localhost:3000/signup" method="post">
+                  <input type="text" name="name" placeholder="name" required/>
+                  <input type="text" name="username" placeholder="username" required/>
+                  <input type="password" name="password" placeholder="password" required/>
+                  <input type="email" name="email" placeholder="email address" required/>
                   <button>create</button>
                   <p class="message">Already registered? <a href="#">Sign In</a></p>
                 </form>
