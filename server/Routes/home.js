@@ -52,7 +52,7 @@ router.delete('/logout',authenticate, (req,res) => {
 router.post('/question', function(req,res,next){
   var body = _.pick(req.body, ['description','chaptername','optionA','optionB','optionC','optionD','correctOption','level'])
    var question = new Question(body)
-   Chapter.findOne(body.chaptername).then((chapter1) => {
+   Chapter.findOne(name:{body.chaptername}).then((chapter1) => {
       question.chapter.push(chapter1)
       console.log(chapter1);
       question.save().then((question) => {
