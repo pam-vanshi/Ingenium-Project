@@ -50,15 +50,16 @@ router.delete('/logout',authenticate, (req,res) => {
   })
   })
 router.post('/question', function(req,res,next){
-  var body = _.pick(req.body, ['description','chapter1','optionA','optionB','optionC','optionD','correctOption','level'])
+  var body = _.pick(req.body, ['description','chaptername','optionA','optionB','optionC','optionD','correctOption','level'])
    var question = new Question(body)
-   Chapter.findOne({name:body.chapter1}).then((chapter1) => {
-     question.chapter.push(chapter1)
-     question.save().then((question) => {
-       res.send(question)
-     }).catch((e) => {
-       res.status(400).send(e)
-     })
+   Chapter.findOne(body.chaptername).then((chapter1) => {
+      question.chapter.push(chapter1)
+      console.log(chapter1);
+      question.save().then((question) => {
+        res.send(question)
+      }).catch((e) => {
+        res.status(400).send(e)
+      })
    })
 })
 
