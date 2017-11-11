@@ -6,6 +6,7 @@ var {Chapter} = require("../models/question/chapter.js")
 var {Question} = require("../models/question/question.js")
 var {Class} = require("../models/question/class.js")
 var {Subject} = require("../models/question/subject.js")
+var {authenticate} = require("../middleware/authenticate.js")
 
 router.get('/',function(req,res,next){
   console.log("home page is working");
@@ -38,6 +39,16 @@ router.post('/login', function(req,res,next){
   });
 });
 
+router.get('/user/me', authenticate, (req,res) => {
+  res.send(req.user)
+})
+router.delete('/logout',authenticate, (req,res) => {
+  req.user.removeToken(req.token).then(() => {
+    res.status(200).send()
+  }, () => {
+    res.status(400).send()
+  })
+  })
 router.post('/question', function(req,res,next){
   var body = _.pick(req.body, ['description','chapter1','optionA','optionB','optionC','optionD','correctOption','level'])
    var question = new Question(body)
@@ -81,8 +92,6 @@ router.post('/class', function(req,res,next){
               })
 
     })
-
-
   })
 
 
