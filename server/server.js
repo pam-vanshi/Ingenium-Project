@@ -6,7 +6,7 @@ var logger = require('morgan')
 //const publicPath = path.join(__dirname, '../public');
 var favicon = require('static-favicon')
 var bodyParser = require('body-parser')
-
+var {User} = require("./models/users.js")
 var app = express()
 var port = process.env.PORT || 3000;
 //var index  = require("./Routes/home.js")
@@ -23,19 +23,20 @@ app.get('/',function(req,res,next){
   res.send("This is working");
 })
 
-app.post('/signup', function(req,res,next){
+app.post('/signup', function(req,res){
   var body = _.pick(req.body,['name','find','contact','email'])
   var user = new User(body)
 
   user.save().then((user) => {
-    res.status().send(user)
+    console.log("user is saved");
+    res.send(user)
 
 }).catch((e) => {
-     res.status(400).send();
+     res.status(400).send("there is some error");
   })
 })
 
 
 app.listen(port, console.log(`server is running on ${port}`))
 
-module.exports = {app}
+//module.exports = {app}
