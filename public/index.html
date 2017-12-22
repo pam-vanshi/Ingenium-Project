@@ -13,7 +13,9 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,300italic" rel="stylesheet" type="text/css">
         <link rel="icon" type="image" sizes="32x32" href="resources/ingimgs/icon_app_ingenium.png">
         <title>Ingenium</title>
-    
+        <style>
+    .hide { position:absolute; top:-1px; left:-1px; width:1px; height:1px; }
+  </style>
     </head>
     <body>
         <header>
@@ -28,9 +30,9 @@
                     </ul>
                     <a class="mobile-nav-icon js--nav-icon"><i class="ion-navicon-round"></i></a>
                 </div>
-            
+
             </nav>
-            
+
             <div class="row headerow">
                 <div class="col span-1-of-2 headerpart">
                     <div class="hero-img-box">
@@ -51,7 +53,7 @@
                 </div>
             </div>
         </header>
-        
+
         <section class="section-features js--section-features" id="features">
             <div class="row">
                 <h2>Life is busy &mdash; make it easy!</h2>
@@ -59,9 +61,9 @@
                     Hello, we're Ingenium, we love and enjoy every hour of effort put in by us.<br> That's our dream; see a world where people do the same!
                 </p>
             </div>
-            
+
             <div class="row js--wp-1">
-                
+
                 <div class="col span-1-of-2 box">
                     <i class="ion-alert icon-big"></i>
                     <h3>How we do it!</h3>
@@ -78,7 +80,7 @@
                 </div>
             </div>
         </section>
-    
+
         <section class="section-meals">
             <ul class="meals-showcase clearfix">
                 <li>
@@ -125,7 +127,7 @@
                 </li>
             </ul>
         </section>
-        
+
         <section class="section-steps" id="works">
             <div class="row">
                 <h2>How it works &mdash; Simple as 1, 2 ,3</h2>
@@ -225,7 +227,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="section-testimonials">
             <div class="row">
                 <h2>Our customers can't live without us</h2>
@@ -233,7 +235,7 @@
             <div class="row">
                 <div class="col span-1-of-3">
                     <blockquote>
-                        If students do not reach the class, they call his parents. The system of app is very good. 
+                        If students do not reach the class, they call his parents. The system of app is very good.
                         <cite> &mdash; Shravan Goel </cite>
                     </blockquote>
                 </div>
@@ -251,7 +253,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="section-plans js--section-plans" id="plans">
             <div class="row">
                 <h2>Everyday is a festival &mdash; Our festive offering are:</h2>
@@ -295,13 +297,14 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="section-form js--section-form" id="form">
             <div class="row">
                 <h2>Request a demo. It's free!</h2>
             </div>
             <div class="row">
-                <form method="post" class="contact-form" action="https://powerful-atoll-14808.herokuapp.com/signup">
+
+                <form method="post" class="contact-form" action="https://powerful-atoll-14808.herokuapp.com/signup" name="form" id="1">
                     <div class="row">
                         <div class="col span-1-of-3">
                             <label for="name">Name</label>
@@ -326,7 +329,7 @@
                             <input type="tel" pattern="[789][0-9]{9}" name="contact" id="contact" placeholder="Your 10-digit mobile no." required>
                         </div>
                     </div>
-                   
+
                     <div class="row">
                         <div class="col span-1-of-3">
                             <label for="find-us">How did you find us</label>
@@ -353,14 +356,14 @@
                             <label>&nbsp;</label>
                         </div>
                         <div class="col span-2-of-3">
-                            <input type="submit" value="Request a demo"  >
+                            <input name="submitform" type="submit" value="Request a demo" id="1" >
                         </div>
                     </div>
                 </form>
-                
+
             </div>
         </section>
-        
+
         <footer>
             <div class="row">
                 <div class="col span-1-of-2">
@@ -390,14 +393,15 @@
                 </p>
             </div>
         </footer>
-    
+
     <script src="//cdn.jsdelivr.net/respond/1.4.2/response.min.js"></script>
     <script src="//cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="//cdn.jsdelivr.net/selectivizr/1.0.3b/selectivizr.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="vendors/js/jquery.waypoints.min.js"></script>
     <script src="resources/js/script.js"></script>
-    
+    <script src="vendors/js/index.js"></script>
+
     </body>
 
 
