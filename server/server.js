@@ -3,7 +3,7 @@ const path = require('path')
 var {mongoose} = require('./db/mongoose.js')//for connecting to mongodb database
 const _ = require('lodash')
 var logger = require('morgan')
-//const publicPath = path.join(__dirname, '../public');
+const publicPath = path.join(__dirname, '../public');
 var favicon = require('static-favicon')
 var bodyParser = require('body-parser')
 var {User} = require("./models/users.js")
@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(favicon());// for ceaching
 app.use(logger('dev'));//for request logs
-//app.use(express.static(publicPath))
+app.use(express.static(publicPath))
 //app.use('/',index)
 app.get('/',function(req,res,next){
   console.log("home page is working");
